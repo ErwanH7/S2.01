@@ -41,6 +41,12 @@ LecteurVue::LecteurVue(QWidget *parent)
     connect(ui->retirerCD, SIGNAL(pressed()), this, SLOT(bouton_retirer()));
     connect(ui->barreTempEcoule, SIGNAL(valueChanged(int)), this, SLOT(bar_time()));
     connect(ui->barreVolume, SIGNAL(valueChanged(int)), this, SLOT(bar_volume(int)));
+
+    ui->etatDisque->setText("Sans CD");
+    ui->insererCD->setEnabled(false);
+    ui->retirerCD->setEnabled(false);
+    mettreAJourBoutonsLecture();
+
 }
 
 LecteurVue::~LecteurVue()
