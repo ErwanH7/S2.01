@@ -20,7 +20,20 @@ public:
 private:
     Ui::LecteurVue *ui;
 
+public slots:
+    void bouton_pred();
+    void bouton_replay();
+    void bouton_play(bool);
+    void bouton_stop();
+    void bouton_suiv();
+    void bouton_open(bool);
+    void bouton_autoMode(bool);
+    void bouton_inserer();
+    void bouton_retirer();
 
+
+    void bar_time();
+    void bar_volume(int);
 
 };
 #endif // LECTEURVUE_H

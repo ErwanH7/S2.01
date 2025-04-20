@@ -29,14 +29,14 @@ LecteurVue::LecteurVue(QWidget *parent)
 {
     ui->setupUi(this);
 
-
+    //connect
     connect(ui->titrePrec, SIGNAL(pressed()), this, SLOT(bouton_pred()));
     connect(ui->recommencerTitre, SIGNAL(pressed()), this, SLOT(bouton_replay()));
     connect(ui->lecturePause, SIGNAL(toggled(bool)), this, SLOT(bouton_play(bool)));
     connect(ui->boutonStop, SIGNAL(pressed()), this, SLOT(bouton_stop()));
     connect(ui->titreSuivant, SIGNAL(pressed()), this, SLOT(bouton_suiv()));
     connect(ui->ouvrirFermer, SIGNAL(toggled(bool)), this, SLOT(bouton_open(bool)));
-    connect(ui->radioButton, SIGNAL(toggled(bool)), this, SLOT(bouton_autoMode(bool)));
+    connect(ui->autoButton, SIGNAL(toggled(bool)), this, SLOT(bouton_autoMode(bool)));
     connect(ui->insererCD, SIGNAL(pressed()), this, SLOT(bouton_inserer()));
     connect(ui->retirerCD, SIGNAL(pressed()), this, SLOT(bouton_retirer()));
     connect(ui->barreTempEcoule, SIGNAL(valueChanged(int)), this, SLOT(bar_time()));
@@ -228,5 +228,5 @@ void LecteurVue::mettreAJourBoutonsLecture()
     ui->titrePrec->setEnabled(actif);
     ui->recommencerTitre->setEnabled(actif);
     ui->boutonStop->setEnabled(actif);
-    ui->radioButton->setEnabled(actif);
+    ui->autoButton->setEnabled(actif);
 }
