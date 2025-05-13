@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../lecteurvue.h"
+#include "../../../../V0.5/lecteurvue.h"
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -49,6 +49,7 @@ template <> constexpr inline auto LecteurVue::qt_create_metaobjectdata<qt_meta_t
         "bouton_autoMode",
         "bouton_inserer",
         "bouton_retirer",
+        "bouton_volume",
         "bar_time",
         "bar_volume"
     };
@@ -78,10 +79,12 @@ template <> constexpr inline auto LecteurVue::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPublic, QMetaType::Void),
         // Slot 'bouton_retirer'
         QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPublic, QMetaType::Void),
-        // Slot 'bar_time'
+        // Slot 'bouton_volume'
         QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'bar_time'
+        QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPublic, QMetaType::Void),
         // Slot 'bar_volume'
-        QtMocHelpers::SlotData<void(int)>(12, 2, QMC::AccessPublic, QMetaType::Void, {{
+        QtMocHelpers::SlotData<void(int)>(13, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::Int, 2 },
         }}),
     };
@@ -116,8 +119,9 @@ void LecteurVue::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 6: _t->bouton_autoMode((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
         case 7: _t->bouton_inserer(); break;
         case 8: _t->bouton_retirer(); break;
-        case 9: _t->bar_time(); break;
-        case 10: _t->bar_volume((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 9: _t->bouton_volume(); break;
+        case 10: _t->bar_time(); break;
+        case 11: _t->bar_volume((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         default: ;
         }
     }
@@ -142,14 +146,14 @@ int LecteurVue::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 12;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 12)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 11;
+        _id -= 12;
     }
     return _id;
 }

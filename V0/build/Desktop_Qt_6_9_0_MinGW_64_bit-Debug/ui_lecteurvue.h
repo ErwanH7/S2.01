@@ -13,6 +13,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -42,23 +43,25 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QLabel *pochette;
     QGridLayout *gridLayout;
-    QPushButton *titreSuivant;
-    QLabel *intituleCD;
-    QPushButton *ouvrirFermer;
-    QPushButton *boutonStop;
-    QPushButton *titrePrec;
-    QLabel *titreEnCours;
-    QPushButton *recommencerTitre;
     QPushButton *lecturePause;
-    QRadioButton *autoButton;
-    QLabel *rangTitre;
     QPushButton *insererCD;
+    QPushButton *ouvrirFermer;
+    QRadioButton *autoButton;
+    QPushButton *boutonStop;
+    QLabel *intituleCD;
     QPushButton *retirerCD;
+    QLabel *titreEnCours;
+    QPushButton *titreSuivant;
+    QLabel *rangTitre;
+    QPushButton *recommencerTitre;
+    QPushButton *titrePrec;
     QGridLayout *gridLayout_2;
+    QLabel *volume;
     QSlider *barreVolume;
     QLabel *tempEcoule;
-    QLabel *volume;
     QSlider *barreTempEcoule;
+    QCheckBox *volumeCheck;
+    QLabel *labelTemps;
     QSpacerItem *horizontalSpacer;
     QMenuBar *menubar;
     QMenu *menuMenu;
@@ -107,24 +110,30 @@ public:
 
         gridLayout = new QGridLayout();
         gridLayout->setObjectName("gridLayout");
-        titreSuivant = new QPushButton(centralwidget);
-        titreSuivant->setObjectName("titreSuivant");
-        QIcon icon(QIcon::fromTheme(QIcon::ThemeIcon::GoNext));
-        titreSuivant->setIcon(icon);
+        lecturePause = new QPushButton(centralwidget);
+        lecturePause->setObjectName("lecturePause");
+        QIcon icon(QIcon::fromTheme(QIcon::ThemeIcon::MediaPlaybackStart));
+        lecturePause->setIcon(icon);
+        lecturePause->setCheckable(true);
 
-        gridLayout->addWidget(titreSuivant, 2, 4, 1, 1);
+        gridLayout->addWidget(lecturePause, 2, 2, 1, 1);
 
-        intituleCD = new QLabel(centralwidget);
-        intituleCD->setObjectName("intituleCD");
-        intituleCD->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        insererCD = new QPushButton(centralwidget);
+        insererCD->setObjectName("insererCD");
+        insererCD->setAutoDefault(false);
 
-        gridLayout->addWidget(intituleCD, 0, 2, 1, 1);
+        gridLayout->addWidget(insererCD, 3, 1, 1, 1);
 
         ouvrirFermer = new QPushButton(centralwidget);
         ouvrirFermer->setObjectName("ouvrirFermer");
         ouvrirFermer->setCheckable(true);
 
         gridLayout->addWidget(ouvrirFermer, 3, 2, 1, 1);
+
+        autoButton = new QRadioButton(centralwidget);
+        autoButton->setObjectName("autoButton");
+
+        gridLayout->addWidget(autoButton, 1, 3, 1, 1);
 
         boutonStop = new QPushButton(centralwidget);
         boutonStop->setObjectName("boutonStop");
@@ -133,18 +142,34 @@ public:
 
         gridLayout->addWidget(boutonStop, 2, 3, 1, 1);
 
-        titrePrec = new QPushButton(centralwidget);
-        titrePrec->setObjectName("titrePrec");
-        QIcon icon2(QIcon::fromTheme(QIcon::ThemeIcon::GoPrevious));
-        titrePrec->setIcon(icon2);
+        intituleCD = new QLabel(centralwidget);
+        intituleCD->setObjectName("intituleCD");
+        intituleCD->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
-        gridLayout->addWidget(titrePrec, 2, 0, 1, 1);
+        gridLayout->addWidget(intituleCD, 0, 2, 1, 1);
+
+        retirerCD = new QPushButton(centralwidget);
+        retirerCD->setObjectName("retirerCD");
+
+        gridLayout->addWidget(retirerCD, 3, 3, 1, 1);
 
         titreEnCours = new QLabel(centralwidget);
         titreEnCours->setObjectName("titreEnCours");
         titreEnCours->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         gridLayout->addWidget(titreEnCours, 1, 2, 1, 1);
+
+        titreSuivant = new QPushButton(centralwidget);
+        titreSuivant->setObjectName("titreSuivant");
+        QIcon icon2(QIcon::fromTheme(QIcon::ThemeIcon::GoNext));
+        titreSuivant->setIcon(icon2);
+
+        gridLayout->addWidget(titreSuivant, 2, 4, 1, 1);
+
+        rangTitre = new QLabel(centralwidget);
+        rangTitre->setObjectName("rangTitre");
+
+        gridLayout->addWidget(rangTitre, 1, 1, 1, 1);
 
         recommencerTitre = new QPushButton(centralwidget);
         recommencerTitre->setObjectName("recommencerTitre");
@@ -153,62 +178,52 @@ public:
 
         gridLayout->addWidget(recommencerTitre, 2, 1, 1, 1);
 
-        lecturePause = new QPushButton(centralwidget);
-        lecturePause->setObjectName("lecturePause");
-        QIcon icon4(QIcon::fromTheme(QIcon::ThemeIcon::MediaPlaybackStart));
-        lecturePause->setIcon(icon4);
-        lecturePause->setCheckable(true);
+        titrePrec = new QPushButton(centralwidget);
+        titrePrec->setObjectName("titrePrec");
+        QIcon icon4(QIcon::fromTheme(QIcon::ThemeIcon::GoPrevious));
+        titrePrec->setIcon(icon4);
 
-        gridLayout->addWidget(lecturePause, 2, 2, 1, 1);
-
-        autoButton = new QRadioButton(centralwidget);
-        autoButton->setObjectName("autoButton");
-
-        gridLayout->addWidget(autoButton, 1, 3, 1, 1);
-
-        rangTitre = new QLabel(centralwidget);
-        rangTitre->setObjectName("rangTitre");
-
-        gridLayout->addWidget(rangTitre, 1, 1, 1, 1);
-
-        insererCD = new QPushButton(centralwidget);
-        insererCD->setObjectName("insererCD");
-        insererCD->setAutoDefault(false);
-
-        gridLayout->addWidget(insererCD, 3, 1, 1, 1);
-
-        retirerCD = new QPushButton(centralwidget);
-        retirerCD->setObjectName("retirerCD");
-
-        gridLayout->addWidget(retirerCD, 3, 3, 1, 1);
+        gridLayout->addWidget(titrePrec, 2, 0, 1, 1);
 
 
         verticalLayout->addLayout(gridLayout);
 
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setObjectName("gridLayout_2");
+        volume = new QLabel(centralwidget);
+        volume->setObjectName("volume");
+
+        gridLayout_2->addWidget(volume, 1, 0, 1, 1);
+
         barreVolume = new QSlider(centralwidget);
         barreVolume->setObjectName("barreVolume");
         barreVolume->setMaximum(100);
         barreVolume->setOrientation(Qt::Orientation::Horizontal);
 
-        gridLayout_2->addWidget(barreVolume, 1, 1, 1, 1);
+        gridLayout_2->addWidget(barreVolume, 1, 2, 1, 1);
 
         tempEcoule = new QLabel(centralwidget);
         tempEcoule->setObjectName("tempEcoule");
 
         gridLayout_2->addWidget(tempEcoule, 0, 0, 1, 1);
 
-        volume = new QLabel(centralwidget);
-        volume->setObjectName("volume");
-
-        gridLayout_2->addWidget(volume, 1, 0, 1, 1);
-
         barreTempEcoule = new QSlider(centralwidget);
         barreTempEcoule->setObjectName("barreTempEcoule");
         barreTempEcoule->setOrientation(Qt::Orientation::Horizontal);
 
-        gridLayout_2->addWidget(barreTempEcoule, 0, 1, 1, 1);
+        gridLayout_2->addWidget(barreTempEcoule, 0, 2, 1, 1);
+
+        volumeCheck = new QCheckBox(centralwidget);
+        volumeCheck->setObjectName("volumeCheck");
+        QIcon icon5(QIcon::fromTheme(QIcon::ThemeIcon::AudioVolumeHigh));
+        volumeCheck->setIcon(icon5);
+
+        gridLayout_2->addWidget(volumeCheck, 1, 1, 1, 1);
+
+        labelTemps = new QLabel(centralwidget);
+        labelTemps->setObjectName("labelTemps");
+
+        gridLayout_2->addWidget(labelTemps, 0, 1, 1, 1);
 
 
         verticalLayout->addLayout(gridLayout_2);
@@ -249,20 +264,22 @@ public:
         LecteurVue->setWindowTitle(QCoreApplication::translate("LecteurVue", "LecteurVue", nullptr));
         etatDisque->setText(QCoreApplication::translate("LecteurVue", "Sans CD", nullptr));
         pochette->setText(QCoreApplication::translate("LecteurVue", "pochette", nullptr));
-        titreSuivant->setText(QString());
-        intituleCD->setText(QCoreApplication::translate("LecteurVue", "Intitul\303\251 du CD", nullptr));
-        ouvrirFermer->setText(QCoreApplication::translate("LecteurVue", "Ouvrir/Fermer", nullptr));
-        boutonStop->setText(QString());
-        titrePrec->setText(QString());
-        titreEnCours->setText(QCoreApplication::translate("LecteurVue", "Titre en cours ", nullptr));
-        recommencerTitre->setText(QString());
         lecturePause->setText(QCoreApplication::translate("LecteurVue", "Lecture/Pause", nullptr));
-        autoButton->setText(QCoreApplication::translate("LecteurVue", "Mode auto", nullptr));
-        rangTitre->setText(QCoreApplication::translate("LecteurVue", "Rang du titre", nullptr));
         insererCD->setText(QCoreApplication::translate("LecteurVue", "ins\303\251rer CD", nullptr));
+        ouvrirFermer->setText(QCoreApplication::translate("LecteurVue", "Ouvrir/Fermer", nullptr));
+        autoButton->setText(QCoreApplication::translate("LecteurVue", "Mode auto", nullptr));
+        boutonStop->setText(QString());
+        intituleCD->setText(QCoreApplication::translate("LecteurVue", "Intitul\303\251 du CD", nullptr));
         retirerCD->setText(QCoreApplication::translate("LecteurVue", "retirer CD", nullptr));
-        tempEcoule->setText(QCoreApplication::translate("LecteurVue", "Temp \303\251coul\303\251 : .. /..", nullptr));
+        titreEnCours->setText(QCoreApplication::translate("LecteurVue", "Titre en cours ", nullptr));
+        titreSuivant->setText(QString());
+        rangTitre->setText(QCoreApplication::translate("LecteurVue", "Rang du titre", nullptr));
+        recommencerTitre->setText(QString());
+        titrePrec->setText(QString());
         volume->setText(QCoreApplication::translate("LecteurVue", "Volume :", nullptr));
+        tempEcoule->setText(QCoreApplication::translate("LecteurVue", "Temp \303\251coul\303\251 :", nullptr));
+        volumeCheck->setText(QString());
+        labelTemps->setText(QCoreApplication::translate("LecteurVue", "--.--/--.--", nullptr));
         menuMenu->setTitle(QCoreApplication::translate("LecteurVue", "Menu", nullptr));
     } // retranslateUi
 
