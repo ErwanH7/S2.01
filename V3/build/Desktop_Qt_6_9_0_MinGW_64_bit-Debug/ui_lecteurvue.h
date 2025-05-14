@@ -10,20 +10,17 @@
 #define UI_LECTEURVUE_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -33,211 +30,281 @@ class Ui_LecteurVue
 {
 public:
     QWidget *centralwidget;
-    QHBoxLayout *horizontalLayout_4;
-    QHBoxLayout *horizontalLayout_3;
-    QSpacerItem *horizontalSpacer_2;
-    QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout;
-    QLabel *etatDisque;
-    QHBoxLayout *horizontalLayout_2;
-    QLabel *pochette;
+    QVBoxLayout *verticalLayout_3;
+    QGridLayout *gridLayout_4;
+    QGridLayout *gridLayout_2;
+    QGroupBox *groupBox_2;
+    QGridLayout *gridLayout_8;
     QGridLayout *gridLayout;
-    QPushButton *titreSuivant;
-    QLabel *intituleCD;
-    QPushButton *ouvrirFermer;
-    QPushButton *boutonStop;
-    QPushButton *titrePrec;
-    QLabel *titreEnCours;
-    QPushButton *recommencerTitre;
+    QPushButton *boutonPrecedent;
     QPushButton *lecturePause;
-    QRadioButton *autoButton;
-    QLabel *rangTitre;
+    QPushButton *boutonDebut;
+    QPushButton *boutonSuivant;
+    QPushButton *boutonStop;
+    QGroupBox *groupBox_3;
+    QGridLayout *gridLayout_5;
+    QVBoxLayout *verticalLayout_2;
+    QPushButton *boutonSequentiel;
+    QPushButton *boutonAleatoire;
+    QPushButton *boutonBoucle;
+    QGroupBox *groupBox;
+    QGridLayout *gridLayout_7;
+    QVBoxLayout *verticalLayout;
+    QPushButton *ouvrirFermer;
     QPushButton *insererCD;
     QPushButton *retirerCD;
-    QGridLayout *gridLayout_2;
-    QSlider *barreVolume;
-    QLabel *tempEcoule;
+    QGroupBox *groupBox_4;
+    QGridLayout *gridLayout_6;
+    QGridLayout *gridLayout_3;
     QLabel *volume;
-    QSlider *barreTempEcoule;
+    QSlider *barreVolume;
+    QCheckBox *volumeCheck;
+    QGroupBox *groupBox_5;
+    QGridLayout *gridLayout_9;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *labelRang;
+    QLabel *labelNmrRang;
     QSpacerItem *horizontalSpacer;
-    QMenuBar *menubar;
-    QMenu *menuMenu;
-    QStatusBar *statusbar;
+    QHBoxLayout *horizontalLayout;
+    QLabel *labelProgression;
+    QSlider *tempEcoule;
+    QLabel *labelTemp;
+    QGroupBox *groupBox_6;
+    QWidget *horizontalLayoutWidget_4;
+    QHBoxLayout *horizontalLayout_4;
+    QLabel *labelCD;
+    QLabel *labelTitre;
+    QSpacerItem *horizontalSpacer_2;
+    QFrame *frame;
 
     void setupUi(QMainWindow *LecteurVue)
     {
         if (LecteurVue->objectName().isEmpty())
             LecteurVue->setObjectName("LecteurVue");
-        LecteurVue->resize(1236, 582);
+        LecteurVue->resize(723, 408);
         centralwidget = new QWidget(LecteurVue);
         centralwidget->setObjectName("centralwidget");
-        horizontalLayout_4 = new QHBoxLayout(centralwidget);
-        horizontalLayout_4->setObjectName("horizontalLayout_4");
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName("horizontalLayout_3");
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_2);
-
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName("verticalLayout");
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName("horizontalLayout");
-        etatDisque = new QLabel(centralwidget);
-        etatDisque->setObjectName("etatDisque");
-        etatDisque->setAlignment(Qt::AlignmentFlag::AlignCenter);
-        etatDisque->setMargin(10);
-        etatDisque->setIndent(530);
-
-        horizontalLayout->addWidget(etatDisque);
-
-
-        verticalLayout->addLayout(horizontalLayout);
-
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName("horizontalLayout_2");
-        pochette = new QLabel(centralwidget);
-        pochette->setObjectName("pochette");
-        pochette->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        horizontalLayout_2->addWidget(pochette);
-
-
-        verticalLayout->addLayout(horizontalLayout_2);
-
+        verticalLayout_3 = new QVBoxLayout(centralwidget);
+        verticalLayout_3->setObjectName("verticalLayout_3");
+        gridLayout_4 = new QGridLayout();
+        gridLayout_4->setObjectName("gridLayout_4");
+        gridLayout_2 = new QGridLayout();
+        gridLayout_2->setObjectName("gridLayout_2");
+        groupBox_2 = new QGroupBox(centralwidget);
+        groupBox_2->setObjectName("groupBox_2");
+        QFont font;
+        font.setBold(true);
+        groupBox_2->setFont(font);
+        gridLayout_8 = new QGridLayout(groupBox_2);
+        gridLayout_8->setObjectName("gridLayout_8");
         gridLayout = new QGridLayout();
         gridLayout->setObjectName("gridLayout");
-        titreSuivant = new QPushButton(centralwidget);
-        titreSuivant->setObjectName("titreSuivant");
-        QIcon icon(QIcon::fromTheme(QIcon::ThemeIcon::GoNext));
-        titreSuivant->setIcon(icon);
+        boutonPrecedent = new QPushButton(groupBox_2);
+        boutonPrecedent->setObjectName("boutonPrecedent");
 
-        gridLayout->addWidget(titreSuivant, 2, 4, 1, 1);
+        gridLayout->addWidget(boutonPrecedent, 1, 1, 1, 1);
 
-        intituleCD = new QLabel(centralwidget);
-        intituleCD->setObjectName("intituleCD");
-        intituleCD->setAlignment(Qt::AlignmentFlag::AlignCenter);
+        lecturePause = new QPushButton(groupBox_2);
+        lecturePause->setObjectName("lecturePause");
+        lecturePause->setCheckable(true);
 
-        gridLayout->addWidget(intituleCD, 0, 2, 1, 1);
+        gridLayout->addWidget(lecturePause, 0, 0, 1, 1);
 
-        ouvrirFermer = new QPushButton(centralwidget);
+        boutonDebut = new QPushButton(groupBox_2);
+        boutonDebut->setObjectName("boutonDebut");
+
+        gridLayout->addWidget(boutonDebut, 2, 1, 1, 1);
+
+        boutonSuivant = new QPushButton(groupBox_2);
+        boutonSuivant->setObjectName("boutonSuivant");
+
+        gridLayout->addWidget(boutonSuivant, 0, 1, 1, 1);
+
+        boutonStop = new QPushButton(groupBox_2);
+        boutonStop->setObjectName("boutonStop");
+
+        gridLayout->addWidget(boutonStop, 2, 0, 1, 1);
+
+
+        gridLayout_8->addLayout(gridLayout, 0, 0, 1, 1);
+
+
+        gridLayout_2->addWidget(groupBox_2, 0, 1, 1, 1);
+
+        groupBox_3 = new QGroupBox(centralwidget);
+        groupBox_3->setObjectName("groupBox_3");
+        groupBox_3->setFont(font);
+        gridLayout_5 = new QGridLayout(groupBox_3);
+        gridLayout_5->setObjectName("gridLayout_5");
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        boutonSequentiel = new QPushButton(groupBox_3);
+        boutonSequentiel->setObjectName("boutonSequentiel");
+
+        verticalLayout_2->addWidget(boutonSequentiel);
+
+        boutonAleatoire = new QPushButton(groupBox_3);
+        boutonAleatoire->setObjectName("boutonAleatoire");
+
+        verticalLayout_2->addWidget(boutonAleatoire);
+
+        boutonBoucle = new QPushButton(groupBox_3);
+        boutonBoucle->setObjectName("boutonBoucle");
+
+        verticalLayout_2->addWidget(boutonBoucle);
+
+
+        gridLayout_5->addLayout(verticalLayout_2, 0, 0, 1, 1);
+
+
+        gridLayout_2->addWidget(groupBox_3, 0, 2, 1, 1);
+
+        groupBox = new QGroupBox(centralwidget);
+        groupBox->setObjectName("groupBox");
+        groupBox->setFont(font);
+        gridLayout_7 = new QGridLayout(groupBox);
+        gridLayout_7->setObjectName("gridLayout_7");
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName("verticalLayout");
+        ouvrirFermer = new QPushButton(groupBox);
         ouvrirFermer->setObjectName("ouvrirFermer");
         ouvrirFermer->setCheckable(true);
 
-        gridLayout->addWidget(ouvrirFermer, 3, 2, 1, 1);
+        verticalLayout->addWidget(ouvrirFermer);
 
-        boutonStop = new QPushButton(centralwidget);
-        boutonStop->setObjectName("boutonStop");
-        QIcon icon1(QIcon::fromTheme(QIcon::ThemeIcon::MediaPlaybackStop));
-        boutonStop->setIcon(icon1);
-
-        gridLayout->addWidget(boutonStop, 2, 3, 1, 1);
-
-        titrePrec = new QPushButton(centralwidget);
-        titrePrec->setObjectName("titrePrec");
-        QIcon icon2(QIcon::fromTheme(QIcon::ThemeIcon::GoPrevious));
-        titrePrec->setIcon(icon2);
-
-        gridLayout->addWidget(titrePrec, 2, 0, 1, 1);
-
-        titreEnCours = new QLabel(centralwidget);
-        titreEnCours->setObjectName("titreEnCours");
-        titreEnCours->setAlignment(Qt::AlignmentFlag::AlignCenter);
-
-        gridLayout->addWidget(titreEnCours, 1, 2, 1, 1);
-
-        recommencerTitre = new QPushButton(centralwidget);
-        recommencerTitre->setObjectName("recommencerTitre");
-        QIcon icon3(QIcon::fromTheme(QIcon::ThemeIcon::MediaSeekBackward));
-        recommencerTitre->setIcon(icon3);
-
-        gridLayout->addWidget(recommencerTitre, 2, 1, 1, 1);
-
-        lecturePause = new QPushButton(centralwidget);
-        lecturePause->setObjectName("lecturePause");
-        QIcon icon4(QIcon::fromTheme(QIcon::ThemeIcon::MediaPlaybackStart));
-        lecturePause->setIcon(icon4);
-        lecturePause->setCheckable(true);
-
-        gridLayout->addWidget(lecturePause, 2, 2, 1, 1);
-
-        autoButton = new QRadioButton(centralwidget);
-        autoButton->setObjectName("autoButton");
-
-        gridLayout->addWidget(autoButton, 1, 3, 1, 1);
-
-        rangTitre = new QLabel(centralwidget);
-        rangTitre->setObjectName("rangTitre");
-
-        gridLayout->addWidget(rangTitre, 1, 1, 1, 1);
-
-        insererCD = new QPushButton(centralwidget);
+        insererCD = new QPushButton(groupBox);
         insererCD->setObjectName("insererCD");
-        insererCD->setAutoDefault(false);
 
-        gridLayout->addWidget(insererCD, 3, 1, 1, 1);
+        verticalLayout->addWidget(insererCD);
 
-        retirerCD = new QPushButton(centralwidget);
+        retirerCD = new QPushButton(groupBox);
         retirerCD->setObjectName("retirerCD");
 
-        gridLayout->addWidget(retirerCD, 3, 3, 1, 1);
+        verticalLayout->addWidget(retirerCD);
 
 
-        verticalLayout->addLayout(gridLayout);
+        gridLayout_7->addLayout(verticalLayout, 0, 0, 1, 1);
 
-        gridLayout_2 = new QGridLayout();
-        gridLayout_2->setObjectName("gridLayout_2");
-        barreVolume = new QSlider(centralwidget);
+
+        gridLayout_2->addWidget(groupBox, 0, 0, 1, 1);
+
+        groupBox_4 = new QGroupBox(centralwidget);
+        groupBox_4->setObjectName("groupBox_4");
+        groupBox_4->setFont(font);
+        gridLayout_6 = new QGridLayout(groupBox_4);
+        gridLayout_6->setObjectName("gridLayout_6");
+        gridLayout_3 = new QGridLayout();
+        gridLayout_3->setObjectName("gridLayout_3");
+        volume = new QLabel(groupBox_4);
+        volume->setObjectName("volume");
+
+        gridLayout_3->addWidget(volume, 0, 0, 1, 1);
+
+        barreVolume = new QSlider(groupBox_4);
         barreVolume->setObjectName("barreVolume");
         barreVolume->setMaximum(100);
         barreVolume->setOrientation(Qt::Orientation::Horizontal);
 
-        gridLayout_2->addWidget(barreVolume, 1, 1, 1, 1);
+        gridLayout_3->addWidget(barreVolume, 0, 1, 1, 1);
 
-        tempEcoule = new QLabel(centralwidget);
-        tempEcoule->setObjectName("tempEcoule");
+        volumeCheck = new QCheckBox(groupBox_4);
+        volumeCheck->setObjectName("volumeCheck");
 
-        gridLayout_2->addWidget(tempEcoule, 0, 0, 1, 1);
-
-        volume = new QLabel(centralwidget);
-        volume->setObjectName("volume");
-
-        gridLayout_2->addWidget(volume, 1, 0, 1, 1);
-
-        barreTempEcoule = new QSlider(centralwidget);
-        barreTempEcoule->setObjectName("barreTempEcoule");
-        barreTempEcoule->setOrientation(Qt::Orientation::Horizontal);
-
-        gridLayout_2->addWidget(barreTempEcoule, 0, 1, 1, 1);
+        gridLayout_3->addWidget(volumeCheck, 0, 2, 1, 1);
 
 
-        verticalLayout->addLayout(gridLayout_2);
+        gridLayout_6->addLayout(gridLayout_3, 0, 0, 1, 1);
 
 
-        horizontalLayout_3->addLayout(verticalLayout);
+        gridLayout_2->addWidget(groupBox_4, 0, 3, 1, 1);
+
+
+        gridLayout_4->addLayout(gridLayout_2, 2, 0, 1, 1);
+
+        groupBox_5 = new QGroupBox(centralwidget);
+        groupBox_5->setObjectName("groupBox_5");
+        groupBox_5->setSizeIncrement(QSize(0, 20));
+        groupBox_5->setAlignment(Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter);
+        gridLayout_9 = new QGridLayout(groupBox_5);
+        gridLayout_9->setObjectName("gridLayout_9");
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        labelRang = new QLabel(groupBox_5);
+        labelRang->setObjectName("labelRang");
+
+        horizontalLayout_2->addWidget(labelRang);
+
+        labelNmrRang = new QLabel(groupBox_5);
+        labelNmrRang->setObjectName("labelNmrRang");
+
+        horizontalLayout_2->addWidget(labelNmrRang);
 
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
-        horizontalLayout_3->addItem(horizontalSpacer);
+        horizontalLayout_2->addItem(horizontalSpacer);
 
-        horizontalLayout_3->setStretch(0, 1);
-        horizontalLayout_3->setStretch(1, 5);
-        horizontalLayout_3->setStretch(2, 1);
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        labelProgression = new QLabel(groupBox_5);
+        labelProgression->setObjectName("labelProgression");
 
-        horizontalLayout_4->addLayout(horizontalLayout_3);
+        horizontalLayout->addWidget(labelProgression);
+
+        tempEcoule = new QSlider(groupBox_5);
+        tempEcoule->setObjectName("tempEcoule");
+        tempEcoule->setOrientation(Qt::Orientation::Horizontal);
+
+        horizontalLayout->addWidget(tempEcoule);
+
+        labelTemp = new QLabel(groupBox_5);
+        labelTemp->setObjectName("labelTemp");
+
+        horizontalLayout->addWidget(labelTemp);
+
+
+        horizontalLayout_2->addLayout(horizontalLayout);
+
+
+        gridLayout_9->addLayout(horizontalLayout_2, 0, 0, 1, 1);
+
+
+        gridLayout_4->addWidget(groupBox_5, 1, 0, 1, 1);
+
+        groupBox_6 = new QGroupBox(centralwidget);
+        groupBox_6->setObjectName("groupBox_6");
+        horizontalLayoutWidget_4 = new QWidget(groupBox_6);
+        horizontalLayoutWidget_4->setObjectName("horizontalLayoutWidget_4");
+        horizontalLayoutWidget_4->setGeometry(QRect(0, 20, 311, 171));
+        horizontalLayout_4 = new QHBoxLayout(horizontalLayoutWidget_4);
+        horizontalLayout_4->setObjectName("horizontalLayout_4");
+        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
+        labelCD = new QLabel(horizontalLayoutWidget_4);
+        labelCD->setObjectName("labelCD");
+        labelCD->setFont(font);
+
+        horizontalLayout_4->addWidget(labelCD);
+
+        labelTitre = new QLabel(horizontalLayoutWidget_4);
+        labelTitre->setObjectName("labelTitre");
+
+        horizontalLayout_4->addWidget(labelTitre);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer_2);
+
+        frame = new QFrame(groupBox_6);
+        frame->setObjectName("frame");
+        frame->setGeometry(QRect(290, 20, 391, 91));
+        frame->setFrameShape(QFrame::Shape::StyledPanel);
+        frame->setFrameShadow(QFrame::Shadow::Raised);
+
+        gridLayout_4->addWidget(groupBox_6, 0, 0, 1, 1);
+
+
+        verticalLayout_3->addLayout(gridLayout_4);
 
         LecteurVue->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(LecteurVue);
-        menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1236, 17));
-        menuMenu = new QMenu(menubar);
-        menuMenu->setObjectName("menuMenu");
-        LecteurVue->setMenuBar(menubar);
-        statusbar = new QStatusBar(LecteurVue);
-        statusbar->setObjectName("statusbar");
-        LecteurVue->setStatusBar(statusbar);
-
-        menubar->addAction(menuMenu->menuAction());
 
         retranslateUi(LecteurVue);
 
@@ -247,23 +314,31 @@ public:
     void retranslateUi(QMainWindow *LecteurVue)
     {
         LecteurVue->setWindowTitle(QCoreApplication::translate("LecteurVue", "LecteurVue", nullptr));
-        etatDisque->setText(QCoreApplication::translate("LecteurVue", "Sans CD", nullptr));
-        pochette->setText(QCoreApplication::translate("LecteurVue", "pochette", nullptr));
-        titreSuivant->setText(QString());
-        intituleCD->setText(QCoreApplication::translate("LecteurVue", "Intitul\303\251 du CD", nullptr));
-        ouvrirFermer->setText(QCoreApplication::translate("LecteurVue", "Ouvrir/Fermer", nullptr));
-        boutonStop->setText(QString());
-        titrePrec->setText(QString());
-        titreEnCours->setText(QCoreApplication::translate("LecteurVue", "Titre en cours ", nullptr));
-        recommencerTitre->setText(QString());
+        groupBox_2->setTitle(QCoreApplication::translate("LecteurVue", "Lecture", nullptr));
+        boutonPrecedent->setText(QCoreApplication::translate("LecteurVue", "Pr\303\251c\303\251dent", nullptr));
         lecturePause->setText(QCoreApplication::translate("LecteurVue", "Lecture/Pause", nullptr));
-        autoButton->setText(QCoreApplication::translate("LecteurVue", "Mode auto", nullptr));
-        rangTitre->setText(QCoreApplication::translate("LecteurVue", "Rang du titre", nullptr));
-        insererCD->setText(QCoreApplication::translate("LecteurVue", "ins\303\251rer CD", nullptr));
-        retirerCD->setText(QCoreApplication::translate("LecteurVue", "retirer CD", nullptr));
-        tempEcoule->setText(QCoreApplication::translate("LecteurVue", "Temp \303\251coul\303\251 : .. /..", nullptr));
-        volume->setText(QCoreApplication::translate("LecteurVue", "Volume :", nullptr));
-        menuMenu->setTitle(QCoreApplication::translate("LecteurVue", "Menu", nullptr));
+        boutonDebut->setText(QCoreApplication::translate("LecteurVue", "D\303\251but", nullptr));
+        boutonSuivant->setText(QCoreApplication::translate("LecteurVue", "Suivant", nullptr));
+        boutonStop->setText(QCoreApplication::translate("LecteurVue", "Stop", nullptr));
+        groupBox_3->setTitle(QCoreApplication::translate("LecteurVue", "Mode", nullptr));
+        boutonSequentiel->setText(QCoreApplication::translate("LecteurVue", "S\303\251quentiel", nullptr));
+        boutonAleatoire->setText(QCoreApplication::translate("LecteurVue", "Al\303\251atoire", nullptr));
+        boutonBoucle->setText(QCoreApplication::translate("LecteurVue", "Boucle", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("LecteurVue", "Tiroir", nullptr));
+        ouvrirFermer->setText(QCoreApplication::translate("LecteurVue", "Ouvrir/Fermer", nullptr));
+        insererCD->setText(QCoreApplication::translate("LecteurVue", "Ins\303\251rer", nullptr));
+        retirerCD->setText(QCoreApplication::translate("LecteurVue", "Retirer", nullptr));
+        groupBox_4->setTitle(QCoreApplication::translate("LecteurVue", "Son", nullptr));
+        volume->setText(QCoreApplication::translate("LecteurVue", "Volume : ", nullptr));
+        volumeCheck->setText(QCoreApplication::translate("LecteurVue", "activer/d\303\251sactiver", nullptr));
+        groupBox_5->setTitle(QCoreApplication::translate("LecteurVue", "Titre en cours", nullptr));
+        labelRang->setText(QCoreApplication::translate("LecteurVue", "Rang :", nullptr));
+        labelNmrRang->setText(QCoreApplication::translate("LecteurVue", "/ 0", nullptr));
+        labelProgression->setText(QCoreApplication::translate("LecteurVue", "Progression :", nullptr));
+        labelTemp->setText(QCoreApplication::translate("LecteurVue", "00.00 / 00.00", nullptr));
+        groupBox_6->setTitle(QCoreApplication::translate("LecteurVue", "Intitul\303\251 CD", nullptr));
+        labelCD->setText(QCoreApplication::translate("LecteurVue", "PAS DE CD", nullptr));
+        labelTitre->setText(QCoreApplication::translate("LecteurVue", "titres", nullptr));
     } // retranslateUi
 
 };
