@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../lecteurcd.h"
+#include "../../../../V5/lecteurcd.h"
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -67,7 +67,13 @@ template <> constexpr inline auto LecteurCD::qt_create_metaobjectdata<qt_meta_ta
         "majVolume",
         "peuplerCD",
         "Cd*",
-        "pCD"
+        "pCD",
+        "capterSonVolumeChanged",
+        "capterCelluleDurationChanged",
+        "capterCellulePositionChanged",
+        "pProgression",
+        "capterCelluleMediaFinished",
+        "definirDossierMedias"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -129,6 +135,22 @@ template <> constexpr inline auto LecteurCD::qt_create_metaobjectdata<qt_meta_ta
         QtMocHelpers::SlotData<void(Cd *)>(27, 2, QMC::AccessPublic, QMetaType::Void, {{
             { 0x80000000 | 28, 29 },
         }}),
+        // Slot 'capterSonVolumeChanged'
+        QtMocHelpers::SlotData<void(float)>(30, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Float, 3 },
+        }}),
+        // Slot 'capterCelluleDurationChanged'
+        QtMocHelpers::SlotData<void(int)>(31, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 6 },
+        }}),
+        // Slot 'capterCellulePositionChanged'
+        QtMocHelpers::SlotData<void(int)>(32, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 33 },
+        }}),
+        // Slot 'capterCelluleMediaFinished'
+        QtMocHelpers::SlotData<void()>(34, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'definirDossierMedias'
+        QtMocHelpers::SlotData<void()>(35, 2, QMC::AccessPublic, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -174,6 +196,11 @@ void LecteurCD::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 19: _t->desactiverSon(); break;
         case 20: _t->majVolume((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 21: _t->peuplerCD((*reinterpret_cast< std::add_pointer_t<Cd*>>(_a[1]))); break;
+        case 22: _t->capterSonVolumeChanged((*reinterpret_cast< std::add_pointer_t<float>>(_a[1]))); break;
+        case 23: _t->capterCelluleDurationChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 24: _t->capterCellulePositionChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 25: _t->capterCelluleMediaFinished(); break;
+        case 26: _t->definirDossierMedias(); break;
         default: ;
         }
     }
@@ -210,14 +237,14 @@ int LecteurCD::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 22)
+        if (_id < 27)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 22;
+        _id -= 27;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 22)
+        if (_id < 27)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 22;
+        _id -= 27;
     }
     return _id;
 }

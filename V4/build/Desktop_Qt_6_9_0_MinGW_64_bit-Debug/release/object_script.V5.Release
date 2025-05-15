@@ -1,0 +1,13 @@
+release/cd.o
+release/cellule.o
+release/lecteurcd.o
+release/main.o
+release/lecteurvue.o
+release/sortieson.o
+release/tiroircd.o
+release/titre.o
+release/moc_cellule.o
+release/moc_lecteurcd.o
+release/moc_lecteurvue.o
+release/moc_sortieson.o
+release/moc_tiroircd.o

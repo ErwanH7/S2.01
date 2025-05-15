@@ -196,7 +196,7 @@ private:
     UnModeLecture mode;         // SEQUENTIEL, BOUCLE, ALEATOIRE
 
     LecteurVue* laVue;          // Pointeur vers la Vue
-    std::string REPERTOIRE_RACINE = "C:\\Users\\Hoarau\\Desktop\\cours\\2eme_semestre\\S2.01\\SAE_201\\V0.5";
+    std::string REPERTOIRE_RACINE = "~\\2eme_semestre\\S2.01\\SAE_201\\V3";
 };
 
 #endif // LECTEURCD_H
