@@ -3,7 +3,7 @@
  * BUT : Simuler le fonctionnement d’un lecteur CD audio
  *       Gestion des actions de lecture, pause, arrêt, navigation entre les titres
  *       Interactions avec un CD, un tiroir et une cellule pour gérer l’état du lecteur
- * VERSION : V1
+ * VERSION : V5
  * AUTEUR : Hoarau, Lalanne, Supervie
  * DATE : 14/04/2025
  * REMARQUES :
@@ -159,46 +159,116 @@ void LecteurCD::debut()
 
 void LecteurCD::ouvrirTiroir()
 {
-    if (etat == CHARGE_ARRET || etat == VIDE_ARRET) {
+    switch(etat) {
+    case VIDE_ARRET: {
         etat = OUVERT_ARRET;
         leTiroirCD.ouvrirTiroir();
+        setEtat(etat);
         qDebug() << "[LecteurCD] ouvrirTiroir() → Tiroir ouvert";
-    } else {
+        break;
+    }
+    case CHARGE_ARRET:{
+        etat = OUVERT_ARRET;
+        setEtat(etat);
+        qDebug() << "[LecteurCD] ouvrirTiroir() → Tiroir ouvert";
+        break;
+    }
+
+    case PAUSE:{
+        leTiroirCD.ouvrirTiroir();
+        titreEnCours = nullptr;
+        rangTitreEnCours = -1;
+        laCellule.setSource(nullptr);
+        etat = OUVERT_ARRET;
+        setEtat(etat);
+        qDebug() << "[LecteurCD] ouvrirTiroir() → Tiroir ouvert";
+        break;
+    }
+
+    case LECTURE:{
+        laCellule.arreterLecture();
+        leTiroirCD.ouvrirTiroir();
+        titreEnCours = nullptr;
+        rangTitreEnCours = -1;
+        laCellule.setSource(nullptr);
+        etat = OUVERT_ARRET;
+        setEtat(etat);
+        qDebug() << "[LecteurCD] ouvrirTiroir() → Tiroir ouvert";
+        break;
+    }
+
+    default:
         qDebug() << "[LecteurCD] ouvrirTiroir() → Action ignorée (état non compatible)";
+        break;
     }
 }
 
 void LecteurCD::fermerTiroir()
 {
-    if (etat == OUVERT_ARRET) {
-        etat = CHARGE_ARRET;
+    switch (etat) {
+    case OUVERT_ARRET:
         leTiroirCD.fermerTiroir();
-        etat = (leTiroirCD.getEtatOccupation() == TiroirCD::OCCUPE) ? CHARGE_ARRET : VIDE_ARRET;
-        qDebug() << "[LecteurCD] fermerTiroir() → Tiroir fermé, état =" << etat;
-    } else {
+        if(leTiroirCD.getEtatOccupation() == TiroirCD::OCCUPE){
+            etat = CHARGE_ARRET;
+            titreEnCours = leTiroirCD.getLeCD()->getTitres();
+            rangTitreEnCours = 0;
+            laCellule.setSource(QString::fromStdString(titreEnCours->getUrl()));
+            qDebug() << "[LecteurCD] fermerTiroir() → Tiroir fermé, état =" << etat;
+        }
+        else {
+            etat = VIDE_ARRET;
+            titreEnCours = nullptr;
+            rangTitreEnCours = -1;
+            qDebug() << "[LecteurCD] fermerTiroir() → Tiroir fermé, état =" << etat;
+        }
+        break;
+    default:
         qDebug() << "[LecteurCD] fermerTiroir() → Action ignorée (état non compatible)";
+        break;
     }
 }
 
 void LecteurCD::insererCD()
 {
-    if (etat == OUVERT_ARRET) {
-        Cd* nouveauCD = new Cd();
-        this->peuplerCD(nouveauCD);
-        leTiroirCD.insererCD(nouveauCD);
-        qDebug() << "[LecteurCD] insererCD() → CD inséré";
-    } else {
+    switch (etat) {
+    case OUVERT_ARRET: {
+        if (this->leTiroirCD.getEtatOccupation() == TiroirCD::VIDE)
+        {
+            Cd* nouveauCD = new Cd();
+            this->peuplerCD(nouveauCD);
+            leTiroirCD.insererCD(nouveauCD);
+            qDebug() << "[LecteurCD] insererCD() → CD inséré";
+            break;
+        }
+        else
+        {
+            qDebug() << "[LecteurCD] insererCD() → Tiroir rempli";
+            break;
+        }
+    }
+    default:
         qDebug() << "[LecteurCD] insererCD() → Action ignorée (état non compatible)";
+        break;
     }
 }
 
 void LecteurCD::retirerCD()
 {
-    if (etat == OUVERT_ARRET && leTiroirCD.getEtatOccupation() == TiroirCD::OCCUPE) {
-        leTiroirCD.retirerCD();
-        qDebug() << "[LecteurCD] retirerCD() → CD retiré";
-    } else {
+    switch (etat) {
+    case OUVERT_ARRET:
+        if(leTiroirCD.getEtatOccupation() == TiroirCD::OCCUPE)
+        {
+            leTiroirCD.retirerCD();
+            setEtat(etat);
+            qDebug() << "[LecteurCD] retirerCD() → CD retiré";
+        }
+        else{
+            qDebug() << "[LecteurCD] retirerCD() → Tiroir vide";
+        }
+        break;
+    default:
         qDebug() << "[LecteurCD] retirerCD() → Action ignorée (état non compatible)";
+        break;
     }
 }
 
