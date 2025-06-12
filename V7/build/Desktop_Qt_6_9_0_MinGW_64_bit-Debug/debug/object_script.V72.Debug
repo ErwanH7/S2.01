@@ -1,0 +1,14 @@
+debug/cd.o
+debug/cellule.o
+debug/lecteurcd.o
+debug/main.o
+debug/lecteurvue.o
+debug/sortieson.o
+debug/tiroircd.o
+debug/titre.o
+debug/qrc_ressourceCD.o
+debug/moc_cellule.o
+debug/moc_lecteurcd.o
+debug/moc_lecteurvue.o
+debug/moc_sortieson.o
+debug/moc_tiroircd.o
