@@ -35,11 +35,13 @@ public:
     QGridLayout *gridLayout_4;
     QHBoxLayout *horizontalLayout_5;
     QGridLayout *gridLayout_10;
-    QLabel *labelValeurDureeCD;
-    QLabel *labelCD;
-    QLabel *labelDureeCD;
-    QLabel *labelGenre;
     QLabel *labelIntitule;
+    QLabel *labelDureeCD;
+    QLabel *labelIntituleTitre;
+    QLabel *labelGenreTitre;
+    QLabel *labelCD;
+    QLabel *labelValeurDureeCD;
+    QLabel *labelGenre;
     QFrame *frame;
     QHBoxLayout *horizontalLayout_6;
     QLabel *labelImage;
@@ -87,7 +89,7 @@ public:
     {
         if (LecteurVue->objectName().isEmpty())
             LecteurVue->setObjectName("LecteurVue");
-        LecteurVue->resize(737, 505);
+        LecteurVue->resize(813, 597);
         centralwidget = new QWidget(LecteurVue);
         centralwidget->setObjectName("centralwidget");
         verticalLayout_3 = new QVBoxLayout(centralwidget);
@@ -98,10 +100,25 @@ public:
         horizontalLayout_5->setObjectName("horizontalLayout_5");
         gridLayout_10 = new QGridLayout();
         gridLayout_10->setObjectName("gridLayout_10");
-        labelValeurDureeCD = new QLabel(centralwidget);
-        labelValeurDureeCD->setObjectName("labelValeurDureeCD");
+        labelIntitule = new QLabel(centralwidget);
+        labelIntitule->setObjectName("labelIntitule");
 
-        gridLayout_10->addWidget(labelValeurDureeCD, 4, 0, 1, 1);
+        gridLayout_10->addWidget(labelIntitule, 1, 0, 1, 1);
+
+        labelDureeCD = new QLabel(centralwidget);
+        labelDureeCD->setObjectName("labelDureeCD");
+
+        gridLayout_10->addWidget(labelDureeCD, 5, 0, 1, 1);
+
+        labelIntituleTitre = new QLabel(centralwidget);
+        labelIntituleTitre->setObjectName("labelIntituleTitre");
+
+        gridLayout_10->addWidget(labelIntituleTitre, 0, 0, 1, 1);
+
+        labelGenreTitre = new QLabel(centralwidget);
+        labelGenreTitre->setObjectName("labelGenreTitre");
+
+        gridLayout_10->addWidget(labelGenreTitre, 3, 0, 1, 1);
 
         labelCD = new QLabel(centralwidget);
         labelCD->setObjectName("labelCD");
@@ -109,22 +126,17 @@ public:
         font.setBold(true);
         labelCD->setFont(font);
 
-        gridLayout_10->addWidget(labelCD, 1, 0, 1, 1);
+        gridLayout_10->addWidget(labelCD, 2, 0, 1, 1);
 
-        labelDureeCD = new QLabel(centralwidget);
-        labelDureeCD->setObjectName("labelDureeCD");
+        labelValeurDureeCD = new QLabel(centralwidget);
+        labelValeurDureeCD->setObjectName("labelValeurDureeCD");
 
-        gridLayout_10->addWidget(labelDureeCD, 3, 0, 1, 1);
+        gridLayout_10->addWidget(labelValeurDureeCD, 6, 0, 1, 1);
 
         labelGenre = new QLabel(centralwidget);
         labelGenre->setObjectName("labelGenre");
 
-        gridLayout_10->addWidget(labelGenre, 2, 0, 1, 1);
-
-        labelIntitule = new QLabel(centralwidget);
-        labelIntitule->setObjectName("labelIntitule");
-
-        gridLayout_10->addWidget(labelIntitule, 0, 0, 1, 1);
+        gridLayout_10->addWidget(labelGenre, 4, 0, 1, 1);
 
 
         horizontalLayout_5->addLayout(gridLayout_10);
@@ -135,6 +147,7 @@ public:
         frame->setFrameShadow(QFrame::Shadow::Raised);
         horizontalLayout_6 = new QHBoxLayout(frame);
         horizontalLayout_6->setObjectName("horizontalLayout_6");
+        horizontalLayout_6->setSizeConstraint(QLayout::SizeConstraint::SetMaximumSize);
         labelImage = new QLabel(frame);
         labelImage->setObjectName("labelImage");
 
@@ -347,11 +360,13 @@ public:
     void retranslateUi(QMainWindow *LecteurVue)
     {
         LecteurVue->setWindowTitle(QCoreApplication::translate("LecteurVue", "LecteurVue", nullptr));
-        labelValeurDureeCD->setText(QCoreApplication::translate("LecteurVue", "00:00", nullptr));
-        labelCD->setText(QCoreApplication::translate("LecteurVue", "PAS DE CD", nullptr));
+        labelIntitule->setText(QString());
         labelDureeCD->setText(QCoreApplication::translate("LecteurVue", "Dur\303\251e (s) : ", nullptr));
-        labelGenre->setText(QCoreApplication::translate("LecteurVue", "Genre : ", nullptr));
-        labelIntitule->setText(QCoreApplication::translate("LecteurVue", "Intitul\303\251 CD : ", nullptr));
+        labelIntituleTitre->setText(QCoreApplication::translate("LecteurVue", "Intitul\303\251 CD : ", nullptr));
+        labelGenreTitre->setText(QCoreApplication::translate("LecteurVue", "Genre : ", nullptr));
+        labelCD->setText(QCoreApplication::translate("LecteurVue", "PAS DE CD", nullptr));
+        labelValeurDureeCD->setText(QCoreApplication::translate("LecteurVue", "00:00", nullptr));
+        labelGenre->setText(QString());
         labelImage->setText(QString());
         groupBox_5->setTitle(QCoreApplication::translate("LecteurVue", "Titre en cours", nullptr));
         labelRang->setText(QCoreApplication::translate("LecteurVue", "Rang :", nullptr));

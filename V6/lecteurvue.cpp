@@ -1,7 +1,7 @@
     /*
  * PROGRAMME : lecteurVue
  * BUT : Gère l'ensemble du projet
- * VERSION : V5
+ * VERSION : V6
  * AUTEUR : Hoarau, Lalanne, Supervie
  * DATE : 14/04/2025
  * REMARQUES :

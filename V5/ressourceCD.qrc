@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/CD">
+    <qresource prefix="/imageCD">
         <file>CDs/cd1/pochette_cd1.jpg</file>
         <file>CDs/cd1/titre1/cover_635.jpg</file>
         <file>CDs/cd1/titre2/cover_651.jpg</file>

@@ -1,4 +1,4 @@
-/*
+    /*
  * PROGRAMME : lecteurVue
  * BUT : Gère l'ensemble du projet
  * VERSION : V5
@@ -34,6 +34,17 @@ LecteurVue::LecteurVue(QWidget *parent)
     connect(ui->tempEcoule, SIGNAL(valueChanged(int)), this, SLOT(bar_time()));
     connect(ui->barreVolume, SIGNAL(valueChanged(int)), this, SLOT(bar_volume(int)));
 
+
+    // désactive par défaut tous les boutons sauf ouvrir/fermer, boucle et sequentiel
+    ui->boutonStop->setEnabled(false);
+    ui->boutonSuivant->setEnabled(false);
+    ui->boutonAleatoire->setEnabled(false);
+    ui->boutonDebut->setEnabled(false);
+    ui->boutonPrecedent->setEnabled(false);
+    ui->lecturePause->setEnabled(false);
+    ui->insererCD->setEnabled(false);
+    ui->tempEcoule->setEnabled(false);
+    ui->retirerCD->setEnabled(false);
 }
 
 LecteurVue::~LecteurVue()
@@ -51,6 +62,11 @@ QSlider *LecteurVue::getTempEcoule()
     return ui->tempEcoule;
 }
 
+Ui::LecteurVue *LecteurVue::getUi()
+{
+    return ui;
+}
+
 
 void LecteurVue::bouton_pred()
 {
@@ -64,13 +80,13 @@ void LecteurVue::bouton_replay()
 
 void LecteurVue::bouton_play(bool b)
 {
-   if(b)
+    if(b)
     {
         if (lecteur) lecteur->lire();
     }
     else
     {
-       if (lecteur) lecteur->pause();
+        if (lecteur) lecteur->pause();
     }
 }
 

@@ -21,6 +21,7 @@ public:
     ~LecteurVue();
     void setLecteurCD(LecteurCD *lecteur); //méthode pour utiliser le lecteurCd
     QSlider* getTempEcoule();
+    Ui::LecteurVue* getUi();
 
 private:
     Ui::LecteurVue *ui;
